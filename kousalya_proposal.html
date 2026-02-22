@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kousalya 💖 System Proposal</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+h1 {
+  color: #ff4b5c;
+}
+
+button {
+  padding: 12px 22px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.yes {
+  background: #28a745;
+  color: white;
+}
+
+.no {
+  background: #dc3545;
+  color: white;
+  position: absolute;
+}
+
+#message {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ff4b5c;
+}
+
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 20px;
+  animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) scale(1.5);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💻 Love.exe Running…</h1>
+
+  <p>
+    Scanning heart… ❤️<br>
+    Virus found: <b>Kousalya</b> 😜<br>
+    No cure available 💊❌
+  </p>
+
+  <h2>Accept this proposal?</h2>
+
+  <button class="yes" onclick="loveExplosion()">Yes 💖</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">No 😏</button>
+
+  <div id="message">💖 Yayyy Kousalya accepted! 💃💖</div>
+</div>
+
+<script>
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  const x = Math.random() * 250;
+  const y = Math.random() * 250;
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function loveExplosion() {
+  document.getElementById("message").style.display = "block";
+
+  for (let i = 0; i < 40; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = Math.random() * window.innerHeight + "px";
+
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 2000);
+  }
+}
+</script>
+
+</body>
+</html>
